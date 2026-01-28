@@ -1,0 +1,22 @@
+{
+  "name": "fullstack-docker-compose",
+  "version": "1.0.0",
+  "description": "Full-stack application with Docker Compose",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "docker-compose",
+    "postgres",
+    "redis",
+    "nodejs"
+  ],
+  "author": "ry-ops",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "redis": "^4.6.10"
+  }
+}
