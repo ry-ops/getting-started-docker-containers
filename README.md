@@ -1,5 +1,9 @@
 # Getting Started with Docker Containers
 
+<p align="center">
+  <img src="hero.svg" alt="Getting Started with Docker Containers" width="100%">
+</p>
+
 A comprehensive guide to Docker containerization with practical examples and best practices.
 
 ## Quick Start
