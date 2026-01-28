@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1a2e"/>
+      <stop offset="100%" stop-color="#1e3a5f"/>
+    </linearGradient>
+
+    <linearGradient id="container-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+
+    <linearGradient id="container-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+
+    <linearGradient id="container-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes float-container {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes pulse-layer {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+
+    @keyframes iso-float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-8px, -8px); }
+    }
+
+    .container-stack {
+      animation: float-container 6s ease-in-out infinite;
+    }
+
+    .layer {
+      animation: pulse-layer 3s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+
+  <!-- Blueprint-style grid -->
+  <g opacity="0.1">
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#60a5fa" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#60a5fa" stroke-width="1"/>
+  </g>
+
+  <!-- Container Stack 1 - Left -->
+  <g class="container-stack" style="animation-delay: 0s">
+    <!-- Base layer -->
+    <rect x="150" y="380" width="180" height="140" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="160" y="390" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
+    <rect x="160" y="425" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="160" y="460" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
+    <rect x="160" y="495" width="160" height="15" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
+
+    <!-- Middle layer -->
+    <rect x="150" y="240" width="180" height="120" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="160" y="250" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
+    <rect x="160" y="282" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
+    <rect x="160" y="314" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
+
+    <!-- Top layer -->
+    <rect x="150" y="130" width="180" height="90" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="160" y="140" width="160" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="160" y="170" width="160" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
+  </g>
+
+  <!-- Container Stack 2 - Center -->
+  <g class="container-stack" style="animation-delay: -1.5s">
+    <rect x="420" y="360" width="200" height="150" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="430" y="370" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
+    <rect x="430" y="408" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="430" y="446" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
+    <rect x="430" y="484" width="180" height="18" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
+
+    <rect x="420" y="200" width="200" height="140" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="430" y="210" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
+    <rect x="430" y="246" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
+    <rect x="430" y="282" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
+    <rect x="430" y="318" width="180" height="16" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.7s"/>
+
+    <rect x="420" y="80" width="200" height="100" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="430" y="90" width="180" height="24" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="430" y="124" width="180" height="24" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
+  </g>
+
+  <!-- Container Stack 3 - Right center -->
+  <g class="container-stack" style="animation-delay: -3s">
+    <rect x="690" y="340" width="190" height="160" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="700" y="350" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
+    <rect x="700" y="390" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="700" y="430" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
+    <rect x="700" y="470" width="170" height="20" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
+
+    <rect x="690" y="200" width="190" height="120" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="700" y="210" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
+    <rect x="700" y="245" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
+    <rect x="700" y="280" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
+
+    <rect x="690" y="100" width="190" height="80" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="700" y="110" width="170" height="22" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="700" y="142" width="170" height="22" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
+  </g>
+
+  <!-- Container Stack 4 - Right -->
+  <g class="container-stack" style="animation-delay: -4.5s">
+    <rect x="950" y="370" width="170" height="140" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="960" y="380" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
+    <rect x="960" y="416" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="960" y="452" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
+    <rect x="960" y="488" width="150" height="16" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
+
+    <rect x="950" y="240" width="170" height="110" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="960" y="250" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
+    <rect x="960" y="284" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
+    <rect x="960" y="318" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
+
+    <rect x="950" y="140" width="170" height="80" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="960" y="150" width="150" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
+    <rect x="960" y="180" width="150" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
+  </g>
+
+  <!-- Isometric connection lines -->
+  <g opacity="0.2">
+    <line x1="330" y1="400" x2="520" y2="350" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5 5">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="620" y1="300" x2="690" y2="280" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5 5">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+    <line x1="880" y1="300" x2="950" y2="280" stroke="#93c5fd" stroke-width="2" stroke-dasharray="5 5">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </line>
+  </g>
+
+  <!-- Floating hexagons for isolation concept -->
+  <g opacity="0.15">
+    <polygon points="80,315 95,306 110,315 110,333 95,342 80,333" fill="none" stroke="#3b82f6" stroke-width="1.5">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="5s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="1080,200 1095,191 1110,200 1110,218 1095,227 1080,218" fill="none" stroke="#60a5fa" stroke-width="1.5">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-12; 0,0" dur="6s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <!-- Ambient glows -->
+  <circle cx="240" cy="315" r="180" fill="#3b82f6" opacity="0.02">
+    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="520" cy="280" r="200" fill="#60a5fa" opacity="0.02">
+    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="785" cy="300" r="190" fill="#93c5fd" opacity="0.02">
+    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="6.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
