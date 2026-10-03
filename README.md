@@ -180,3 +180,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Happy Containerizing!**
+
+<!-- org-footer -->
+---
+
+<p align="center"><sub>Part of <a href="https://github.com/ry-ops">ry-ops</a> · building the pipes between infrastructure, automation, and observability · built by <a href="https://github.com/ry-ops">ry-ops</a></sub></p>
