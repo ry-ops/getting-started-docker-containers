@@ -1,185 +1,69 @@
-# Getting Started with Docker Containers
-
 <p align="center">
-  <img src="hero.svg" alt="Getting Started with Docker Containers" width="100%">
+  <img src="hero.svg" width="100%" alt="A Dockerfile builds an immutable image with docker build, and docker run starts identical containers on a laptop, a server and the cloud.">
 </p>
 
-A comprehensive guide to Docker containerization with practical examples and best practices.
+<h1 align="center">Getting Started with Docker Containers</h1>
 
-## Quick Start
+<p align="center"><b>Package your app once, run it anywhere.</b> A hands-on introduction to Docker — four worked examples, best-practice guides, and the commands you'll actually use.</p>
 
-1. **Prerequisites**
-   - Docker installed ([Get Docker](https://docs.docker.com/get-docker/))
-   - Basic understanding of command line
-
-2. **Clone this repository**
-   ```bash
-   git clone https://github.com/ry-ops/getting-started-docker-containers.git
-   cd getting-started-docker-containers
-   ```
-
-3. **Try the examples**
-   ```bash
-   # Node.js application
-   cd examples/node-app
-   docker build -t node-app .
-   docker run -p 3000:3000 node-app
-
-   # Python application
-   cd examples/python-app
-   docker build -t python-app .
-   docker run -p 8000:8000 python-app
-
-   # Multi-stage build
-   cd examples/multi-stage
-   docker build -t multi-stage-app .
-
-   # Docker Compose full-stack
-   cd examples/docker-compose
-   docker-compose up
-   ```
-
-## Repository Structure
-
-```
-.
-├── examples/
-│   ├── node-app/           # Simple Node.js application
-│   ├── python-app/         # Simple Python application
-│   ├── multi-stage/        # Optimized multi-stage builds
-│   └── docker-compose/     # Full-stack app with database
-└── documentation/
-    ├── DOCKERFILE-BEST-PRACTICES.md
-    ├── DOCKER-COMPOSE.md
-    └── OPTIMIZATION.md
-```
-
-## Examples
-
-### Node.js Application
-A simple Express.js web server demonstrating:
-- Multi-stage builds for smaller images
-- Non-root user for security
-- Proper dependency caching
-- Health checks
-
-### Python Application
-A Flask web application showing:
-- Minimal base images (Alpine)
-- Virtual environment best practices
-- Layer optimization
-- Security considerations
-
-### Multi-Stage Builds
-Advanced examples demonstrating:
-- Build-time vs runtime dependencies
-- Image size optimization
-- Different patterns for various languages
-
-### Docker Compose
-Full-stack application with:
-- Web application
-- PostgreSQL database
-- Redis cache
-- Network configuration
-- Volume management
-
-## Best Practices
-
-### Image Size Optimization
-- Use multi-stage builds to separate build and runtime dependencies
-- Choose minimal base images (Alpine, distroless)
-- Combine RUN commands to reduce layers
-- Use .dockerignore to exclude unnecessary files
-
-### Security
-- Run containers as non-root users
-- Scan images for vulnerabilities
-- Keep base images updated
-- Use specific image tags, not `latest`
-- Minimize installed packages
-
-### Build Efficiency
-- Order Dockerfile instructions from least to most frequently changing
-- Cache dependencies separately from application code
-- Use build cache effectively
-- Leverage BuildKit features
-
-### Production Ready
-- Include health checks
-- Use environment variables for configuration
-- Implement proper logging
-- Set resource limits
-- Use restart policies
-
-## Documentation
-
-Comprehensive guides available in the `documentation/` directory:
-
-- **[Dockerfile Best Practices](documentation/DOCKERFILE-BEST-PRACTICES.md)** - Writing efficient and secure Dockerfiles
-- **[Docker Compose Guide](documentation/DOCKER-COMPOSE.md)** - Multi-container applications
-- **[Optimization Techniques](documentation/OPTIMIZATION.md)** - Advanced optimization strategies
-
-## Common Commands
-
-```bash
-# Build an image
-docker build -t image-name .
-
-# Run a container
-docker run -p host-port:container-port image-name
-
-# View running containers
-docker ps
-
-# Stop a container
-docker stop container-id
-
-# Remove containers
-docker rm container-id
-
-# View images
-docker images
-
-# Remove images
-docker rmi image-name
-
-# View logs
-docker logs container-id
-
-# Execute command in running container
-docker exec -it container-id /bin/sh
-
-# Docker Compose
-docker-compose up           # Start services
-docker-compose down         # Stop services
-docker-compose logs         # View logs
-docker-compose ps           # List services
-```
-
-## Resources
-
-- [Docker Official Documentation](https://docs.docker.com/)
-- [Docker Hub](https://hub.docker.com/)
-- [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
-- [Docker Compose Reference](https://docs.docker.com/compose/compose-file/)
-- [Docker Security Best Practices](https://docs.docker.com/engine/security/)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**ry-ops**
+<p align="center">
+  <img src="https://img.shields.io/badge/Docker-containers-2496ed?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/examples-4-3ddc84" alt="4 examples">
+  <img src="https://img.shields.io/badge/level-beginner%20friendly-3ec7ff" alt="Beginner friendly">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-8b96ad" alt="MIT"></a>
+</p>
 
 ---
 
-**Happy Containerizing!**
+## The idea
+
+A container bundles your app with everything it needs to run — code, runtime, libraries — into one **immutable image**. Build it once with a `Dockerfile`, and it runs the same on your laptop, a server, or the cloud. No more "works on my machine."
+
+## Four examples, one path
+
+<p align="center">
+  <img src="docs/examples.svg" width="100%" alt="Four examples that build on each other: node-app, python-app, multi-stage, docker-compose.">
+</p>
+
+| Example | What it teaches |
+|---|---|
+| [`node-app`](examples/node-app/) | Containerize a Node app — your first Dockerfile |
+| [`python-app`](examples/python-app/) | The same idea in another runtime |
+| [`multi-stage`](examples/multi-stage/) | Build then slim the image — smaller and safer |
+| [`docker-compose`](examples/docker-compose/) | Run an app and a database together |
+
+Each folder has its own README. Pick one and `docker build` it.
+
+## Quick start
+
+```bash
+git clone https://github.com/ry-ops/getting-started-docker-containers.git
+cd getting-started-docker-containers/examples/node-app
+
+docker build -t my-app .
+docker run -p 3000:3000 my-app
+```
+
+## Commands you'll use
+
+```bash
+docker build -t name .          # build an image
+docker run -p 8080:80 name      # run a container
+docker ps                       # running containers
+docker logs <id>                # view logs
+docker exec -it <id> sh         # shell into a container
+docker compose up               # start a multi-container app
+```
+
+## Go deeper
+
+- [DOCKERFILE-BEST-PRACTICES.md](documentation/DOCKERFILE-BEST-PRACTICES.md)
+- [OPTIMIZATION.md](documentation/OPTIMIZATION.md) — smaller, faster images
+- [DOCKER-COMPOSE.md](documentation/DOCKER-COMPOSE.md)
+
+## License
+
+MIT. See [LICENSE](LICENSE).
 
 <!-- org-footer -->
 ---
