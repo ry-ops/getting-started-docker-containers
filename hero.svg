@@ -1,181 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0c1a2e"/>
-      <stop offset="100%" stop-color="#1e3a5f"/>
-    </linearGradient>
-
-    <linearGradient id="container-gradient-1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#1e40af"/>
-    </linearGradient>
-
-    <linearGradient id="container-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#60a5fa"/>
-      <stop offset="100%" stop-color="#2563eb"/>
-    </linearGradient>
-
-    <linearGradient id="container-gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#93c5fd"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
-
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Docker: package once, run anywhere</title>
+  <desc id="d">A Dockerfile packages your app and its dependencies; docker build produces an image; docker run starts identical containers on a laptop, a server and the cloud. A hands-on Docker tutorial.</desc>
+  <defs><linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#2496ed"/><stop offset=".5" stop-color="#1d9bf0"/><stop offset="1" stop-color="#3ddc84"/></linearGradient></defs>
   <style>
-    @keyframes float-container {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    @keyframes pulse-layer {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
-    }
-
-    @keyframes iso-float {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(-8px, -8px); }
-    }
-
-    .container-stack {
-      animation: float-container 6s ease-in-out infinite;
-    }
-
-    .layer {
-      animation: pulse-layer 3s ease-in-out infinite;
-    }
+    text { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill:#e6ebf5; }
+    .muted { fill:#8b96ad; } .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @keyframes build { 0%,12.00% { opacity:0; } 15.50%,94.00% { opacity:1; } 97.00%,100% { opacity:0 } } .build { animation:build 10.0s infinite; }
+    @keyframes img { 0%,26.00% { opacity:0; transform:scale(.7); } 29.50%,94.00% { opacity:1; transform:scale(1); } 97.00%,100% { opacity:0 } } .img { animation:img 10.0s infinite; }
+    @keyframes c0 { 0%,50.00% { opacity:0; transform:scale(.6); } 53.50%,94.00% { opacity:1; transform:scale(1); } 97.00%,100% { opacity:0 } } .c0 { animation:c0 10.0s infinite; }
+    @keyframes c1 { 0%,54.00% { opacity:0; transform:scale(.6); } 57.50%,94.00% { opacity:1; transform:scale(1); } 97.00%,100% { opacity:0 } } .c1 { animation:c1 10.0s infinite; }
+    @keyframes c2 { 0%,58.00% { opacity:0; transform:scale(.6); } 61.50%,94.00% { opacity:1; transform:scale(1); } 97.00%,100% { opacity:0 } } .c2 { animation:c2 10.0s infinite; }
+    @keyframes bf { 0%,10.00% { offset-distance:0%; opacity:0 } 11.00% {opacity:1} 24.00% { offset-distance:100%; opacity:1 } 26.00%,100% {opacity:0} } .bf { animation:bf 10.0s infinite; offset-path: path('M300 180 L 420 180'); }
+    @media (prefers-reduced-motion: reduce) { * { animation:none !important; } }
   </style>
+  <rect width="960" height="400" rx="20" fill="#0f1420"/>
+  <text x="40" y="58" font-size="34" font-weight="800" style="fill:url(#title)">Docker containers</text>
+  <text x="42" y="88" font-size="16" class="muted">Package your app and its dependencies once — then run it identically anywhere.</text>
 
-  <!-- Background -->
-  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  <!-- dockerfile -->
+  <rect x="40" y="130" width="200" height="130" rx="10" fill="#0b0f18" stroke="#2c3750"/>
+  <text x="56" y="152" font-size="11" font-weight="700" class="mono muted">Dockerfile</text>
+  <text x="56" y="176" font-size="11" class="mono" style="fill:#7fc4ff">FROM node:20</text>
+  <text x="56" y="194" font-size="11" class="mono muted">COPY . .</text>
+  <text x="56" y="212" font-size="11" class="mono muted">RUN npm ci</text>
+  <text x="56" y="230" font-size="11" class="mono muted">CMD ["node","app"]</text>
 
-  <!-- Blueprint-style grid -->
-  <g opacity="0.1">
-    <defs>
-      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" stroke-width="0.5"/>
-      </pattern>
-    </defs>
-    <rect width="1200" height="630" fill="url(#grid)"/>
-    <line x1="0" y1="315" x2="1200" y2="315" stroke="#60a5fa" stroke-width="1"/>
-    <line x1="600" y1="0" x2="600" y2="630" stroke="#60a5fa" stroke-width="1"/>
-  </g>
-
-  <!-- Container Stack 1 - Left -->
-  <g class="container-stack" style="animation-delay: 0s">
-    <!-- Base layer -->
-    <rect x="150" y="380" width="180" height="140" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
-    <rect x="160" y="390" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
-    <rect x="160" y="425" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="160" y="460" width="160" height="25" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
-    <rect x="160" y="495" width="160" height="15" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
-
-    <!-- Middle layer -->
-    <rect x="150" y="240" width="180" height="120" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
-    <rect x="160" y="250" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
-    <rect x="160" y="282" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
-    <rect x="160" y="314" width="160" height="22" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
-
-    <!-- Top layer -->
-    <rect x="150" y="130" width="180" height="90" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
-    <rect x="160" y="140" width="160" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="160" y="170" width="160" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
-  </g>
-
-  <!-- Container Stack 2 - Center -->
-  <g class="container-stack" style="animation-delay: -1.5s">
-    <rect x="420" y="360" width="200" height="150" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
-    <rect x="430" y="370" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
-    <rect x="430" y="408" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="430" y="446" width="180" height="28" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
-    <rect x="430" y="484" width="180" height="18" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
-
-    <rect x="420" y="200" width="200" height="140" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
-    <rect x="430" y="210" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
-    <rect x="430" y="246" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
-    <rect x="430" y="282" width="180" height="26" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
-    <rect x="430" y="318" width="180" height="16" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.7s"/>
-
-    <rect x="420" y="80" width="200" height="100" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
-    <rect x="430" y="90" width="180" height="24" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="430" y="124" width="180" height="24" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
-  </g>
-
-  <!-- Container Stack 3 - Right center -->
-  <g class="container-stack" style="animation-delay: -3s">
-    <rect x="690" y="340" width="190" height="160" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
-    <rect x="700" y="350" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
-    <rect x="700" y="390" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="700" y="430" width="170" height="30" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
-    <rect x="700" y="470" width="170" height="20" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
-
-    <rect x="690" y="200" width="190" height="120" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
-    <rect x="700" y="210" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
-    <rect x="700" y="245" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
-    <rect x="700" y="280" width="170" height="25" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
-
-    <rect x="690" y="100" width="190" height="80" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
-    <rect x="700" y="110" width="170" height="22" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="700" y="142" width="170" height="22" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
-  </g>
-
-  <!-- Container Stack 4 - Right -->
-  <g class="container-stack" style="animation-delay: -4.5s">
-    <rect x="950" y="370" width="170" height="140" rx="6" fill="url(#container-gradient-1)" opacity="0.8" stroke="#3b82f6" stroke-width="2"/>
-    <rect x="960" y="380" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0s"/>
-    <rect x="960" y="416" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="960" y="452" width="150" height="26" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.4s"/>
-    <rect x="960" y="488" width="150" height="16" rx="3" class="layer" fill="#1e40af" opacity="0.4" style="animation-delay: 0.6s"/>
-
-    <rect x="950" y="240" width="170" height="110" rx="6" fill="url(#container-gradient-2)" opacity="0.8" stroke="#60a5fa" stroke-width="2"/>
-    <rect x="960" y="250" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.1s"/>
-    <rect x="960" y="284" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.3s"/>
-    <rect x="960" y="318" width="150" height="24" rx="3" class="layer" fill="#2563eb" opacity="0.4" style="animation-delay: 0.5s"/>
-
-    <rect x="950" y="140" width="170" height="80" rx="6" fill="url(#container-gradient-3)" opacity="0.8" stroke="#93c5fd" stroke-width="2"/>
-    <rect x="960" y="150" width="150" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.2s"/>
-    <rect x="960" y="180" width="150" height="20" rx="3" class="layer" fill="#3b82f6" opacity="0.4" style="animation-delay: 0.4s"/>
-  </g>
-
-  <!-- Isometric connection lines -->
-  <g opacity="0.2">
-    <line x1="330" y1="400" x2="520" y2="350" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
-    </line>
-    <line x1="620" y1="300" x2="690" y2="280" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-    </line>
-    <line x1="880" y1="300" x2="950" y2="280" stroke="#93c5fd" stroke-width="2" stroke-dasharray="5 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite" begin="1s"/>
-    </line>
-  </g>
-
-  <!-- Floating hexagons for isolation concept -->
-  <g opacity="0.15">
-    <polygon points="80,315 95,306 110,315 110,333 95,342 80,333" fill="none" stroke="#3b82f6" stroke-width="1.5">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="5s" repeatCount="indefinite"/>
-    </polygon>
-    <polygon points="1080,200 1095,191 1110,200 1110,218 1095,227 1080,218" fill="none" stroke="#60a5fa" stroke-width="1.5">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-12; 0,0" dur="6s" repeatCount="indefinite"/>
-    </polygon>
-  </g>
-
-  <!-- Ambient glows -->
-  <circle cx="240" cy="315" r="180" fill="#3b82f6" opacity="0.02">
-    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="7s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="520" cy="280" r="200" fill="#60a5fa" opacity="0.02">
-    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="785" cy="300" r="190" fill="#93c5fd" opacity="0.02">
-    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="6.5s" repeatCount="indefinite"/>
-  </circle>
+  <!-- image -->
+  <g class="img"><rect x="300" y="150" width="120" height="60" rx="10" fill="#2496ed" fill-opacity=".12" stroke="#2496ed" stroke-width="2"/><text x="360" y="176" text-anchor="middle" font-size="12" font-weight="700">image</text><text x="360" y="194" text-anchor="middle" font-size="9.5" class="muted">immutable</text></g>
+  <circle class="bf" r="5" fill="#2496ed"/>
+  <text x="130" y="300" text-anchor="middle" font-size="11.5" class="mono"><tspan style="fill:#7fc4ff">docker build</tspan><tspan class="muted"> → </tspan><tspan style="fill:#7fc4ff">docker run</tspan></text>
+  <path d="M420 180 C 500 180, 540 170, 640 167" fill="none" stroke="#2c3750" stroke-width="2" stroke-dasharray="3 5"/>
+  <path d="M420 190 C 500 220, 540 250, 640 253" fill="none" stroke="#2c3750" stroke-width="2" stroke-dasharray="3 5"/>
+  <path d="M420 200 C 500 300, 540 330, 640 339" fill="none" stroke="#2c3750" stroke-width="2" stroke-dasharray="3 5"/>
+  <rect x="640" y="130" width="280" height="74" rx="10" fill="#0b0f18" stroke="#2c3750"/><text x="658" y="154" font-size="12" font-weight="700" class="muted">laptop</text><g class="c0"><rect x="658" y="164" width="120" height="28" rx="6" fill="#2496ed" fill-opacity=".18" stroke="#2496ed"/><text x="718" y="182" text-anchor="middle" font-size="11" class="mono" style="fill:#7fc4ff">your app</text></g><text x="902" y="182" text-anchor="end" font-size="10" style="fill:#3ddc84">running ✓</text><rect x="640" y="216" width="280" height="74" rx="10" fill="#0b0f18" stroke="#2c3750"/><text x="658" y="240" font-size="12" font-weight="700" class="muted">server</text><g class="c1"><rect x="658" y="250" width="120" height="28" rx="6" fill="#2496ed" fill-opacity=".18" stroke="#2496ed"/><text x="718" y="268" text-anchor="middle" font-size="11" class="mono" style="fill:#7fc4ff">your app</text></g><text x="902" y="268" text-anchor="end" font-size="10" style="fill:#3ddc84">running ✓</text><rect x="640" y="302" width="280" height="74" rx="10" fill="#0b0f18" stroke="#2c3750"/><text x="658" y="326" font-size="12" font-weight="700" class="muted">cloud</text><g class="c2"><rect x="658" y="336" width="120" height="28" rx="6" fill="#2496ed" fill-opacity=".18" stroke="#2496ed"/><text x="718" y="354" text-anchor="middle" font-size="11" class="mono" style="fill:#7fc4ff">your app</text></g><text x="902" y="354" text-anchor="end" font-size="10" style="fill:#3ddc84">running ✓</text>
 </svg>
